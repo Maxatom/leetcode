@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -86,18 +87,25 @@ public class PrintUtils {
 //            System.out.println("]");
         }
     }
-
+    public static void print2DArrayWithIndex(boolean[][] a){
+        int i=0;
+        for (boolean[] x: a){
+            System.out.printf("%3d:",i++);
+            printArray(x, true);
+        }
+    }
     public static void print2DArray(boolean[][] a){
         for (boolean[] x: a){
-            printArray(x);
+            printArray(x, false);
         }
     }
 
-    public static void printArray(boolean[] array) {
+    public static void printArray(boolean[] array, boolean withIndex) {
         if (array == null) return;
         int i = 0;
         System.out.print("[");
         for (boolean t : array) {
+            if(withIndex) System.out.print(i+":");
             System.out.print(t?1:0);
             if (i != array.length - 1) System.out.print(", ");
             i++;
@@ -120,14 +128,15 @@ public class PrintUtils {
         System.out.println("]");
     }
     public static <T> void printArray(T[] array,Function<T, String> f){
-        int i=0;
-        System.out.print("[");
-        for (T t:array){
-            System.out.print(f.apply(t));
-            if(i!=array.length-1) System.out.print(", ");
-            i++;
-        }
-        System.out.println("]");
+        printList(Arrays.stream(array).collect(Collectors.toList()),f);
+//        int i=0;
+//        System.out.print("[");
+//        for (T t:array){
+//            System.out.print(f.apply(t));
+//            if(i!=array.length-1) System.out.print(", ");
+//            i++;
+//        }
+//        System.out.println("]");
     }
 
     public static <T> void printList(List<T> list, Function<T, String> f){
@@ -265,7 +274,7 @@ public class PrintUtils {
     public static int[] readArrayFromFile(String filePath) throws IOException {
         int[] array;
         try(Stream<String> lines= Files.lines(Paths.get(filePath) ,Charset.defaultCharset())){
-            array=lines.map(p->convertStringToIntArray(p)).collect(Collectors.toList()).get(0);
+            array=lines.map(PrintUtils::convertStringToIntArray).collect(Collectors.toList()).get(0);
         }
         return array;
     }
