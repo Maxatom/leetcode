@@ -10,7 +10,7 @@ This project is the records of leetcode problems that I solved.
 ##### LeetCode Tests I have joined
 leetcode | mycode
 ---|---
-[weekly-contest-128](https://leetcode.com/contest/weekly-contest-128/) | row 1 col 2
+[weekly-contest-127](https://leetcode.com/contest/weekly-contest-127/) | [realTest20190310](https://github.com/Maxatom/leetcode/tree/master/src/leetcode/realtest/realTest20190310)
 
 My leetcode homepage： 
 https://leetcode.com/maxatom/
