@@ -4,6 +4,7 @@
 .classpath
 target
 # IntelliJ project files
+class
 .idea
 *.iml
 out
