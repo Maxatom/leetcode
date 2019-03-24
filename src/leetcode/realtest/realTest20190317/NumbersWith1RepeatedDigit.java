@@ -60,6 +60,7 @@ public class NumbersWith1RepeatedDigit {
 
 
 
+    //Math
     public int numDupDigitsAtMostN(int N) {
         int n=N;
         int count=0;
