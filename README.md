@@ -10,7 +10,7 @@ This project is the records of leetcode problems that I solved.
 
 题号 | 标题 | 解析 | 难度
 ---|--- | --- | ---
-1021 | Best Sightseeing Pair |  |中等
+1021 | Best Sightseeing Pair | [Java](https://github.com/Maxatom/leetcode/blob/master/doc/1021-Best-Sightseeing-Pair.md) |中等
 
 
 
