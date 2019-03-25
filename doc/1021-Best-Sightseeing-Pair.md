@@ -3,6 +3,7 @@
 　　给一个数组A，数组元素都是整数，数组的每个值A[i]表示一个景点的评分，
    一个景点对（i,j）的分数是A[i]+A[j]+i-j; <br> 求分数最大的景点对。
 <br>（原题 https://leetcode.com/problems/best-sightseeing-pair/）
+<br> （我的leetcode贴：https://leetcode.com/problems/best-sightseeing-pair/discuss/261161/Java-O(N)-DP）
   <br>
   Note:<br>
 　　2 <= A.length <= 50000<br>
@@ -32,7 +33,7 @@
  这需要循环，但是我们可以一次循环中记录每个景点分数减去他们到右侧景点的距离，并记录最大值，每向右移动一次，所有景点分数减一，这样只需要一次遍历。
 ```
 //dp(i)= max(max(A[j]+j-i)+A[i])
-    public int maxScoreSightseeingPair1(int[] A) {
+    public int maxScoreSightseeingPair(int[] A) {
         int cur=A[0]-1, max=0;
         for (int i = 1; i < A.length; i++) {
             max=Math.max(cur+A[i], max);
