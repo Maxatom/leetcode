@@ -14,7 +14,7 @@
 ###### 方法1（TLE）：<br>
  　最直接的方法就是计算每两个景点的距离，算法复杂度是 time O(N^2), space O(1)。<br>
 但是这样比较慢，题目给出的数组A的大小最大是50000，这在leetcode上就要求至少O(N)的算法，
-```
+```java
 //brute force
     public int maxScoreSightseeingPair(int[] A) {
         int max=0;
@@ -31,9 +31,9 @@
  假设我们遍历数组到了第i个景点， 我们计算A[i]和它直接的元素的最大值可以这样
  A[i]+max(A[j]+j-i) (0=<j<i)
  这需要循环，但是我们可以一次循环中记录每个景点分数减去他们到右侧景点的距离，并记录最大值，每向右移动一次，所有景点分数减一，这样只需要一次遍历。
-```
+```java
 //dp(i)= max(max(A[j]+j-i)+A[i])
-    public int maxScoreSightseeingPair(int[] A) {
+    public int maxScoreSightseeingPair1(int[] A) {
         int cur=A[0]-1, max=0;
         for (int i = 1; i < A.length; i++) {
             max=Math.max(cur+A[i], max);
