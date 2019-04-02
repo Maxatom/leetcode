@@ -1,5 +1,6 @@
 package utils;
 
+import leetcode.common.ListNode;
 import leetcode.common.TreeNode;
 
 import java.io.IOException;
@@ -264,6 +265,16 @@ public class PrintUtils {
     }
 
 
+    public static ListNode convertArrayToListNode(int[] A){
+        if(A==null || A.length==0) return null;
+        ListNode head=new ListNode(A[0]);
+        ListNode node=head;
+        for (int i = 1; i < A.length; i++) {
+            node.next=new ListNode(A[i]);
+            node=node.next;
+        }
+        return head;
+    }
 
     /**
      * 从文件读取一维数组
