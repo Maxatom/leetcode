@@ -113,7 +113,21 @@ public class PrintUtils {
         }
         System.out.println("]");
     }
-
+    public static void printArray(char[] array) {
+        printArray(array, false);
+    }
+    public static void printArray(char[] array, boolean withIndex) {
+        if (array == null) return;
+        int i = 0;
+        System.out.print("[");
+        for (char t : array) {
+            if(withIndex) System.out.print(i+":");
+            System.out.print(t);
+            if (i != array.length - 1) System.out.print(", ");
+            i++;
+        }
+        System.out.println("]");
+    }
     public static <T> void printArray(T[] array){
         printArray(array,",");
     }
