@@ -144,14 +144,6 @@ public class PrintUtils {
     }
     public static <T> void printArray(T[] array,Function<T, String> f){
         printList(Arrays.stream(array).collect(Collectors.toList()),f);
-//        int i=0;
-//        System.out.print("[");
-//        for (T t:array){
-//            System.out.print(f.apply(t));
-//            if(i!=array.length-1) System.out.print(", ");
-//            i++;
-//        }
-//        System.out.println("]");
     }
 
     public static <T> void printList(List<T> list, Function<T, String> f){
