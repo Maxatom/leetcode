@@ -35,10 +35,8 @@ public class SumofRootToLeafBinaryNumbers {
     }
     public int dfs(TreeNode node, int sum, int pathNum){
         pathNum=((pathNum<<1)+node.val)%MOD;
-        if(node.left== null && node.right==null) {
-//            System.out.println(pathNum);
+        if(node.left== null && node.right==null)
             return (sum+pathNum)%MOD;
-        }
         if(node.left!=null)
             sum=dfs(node.left, sum, pathNum);
         if(node.right!=null)
