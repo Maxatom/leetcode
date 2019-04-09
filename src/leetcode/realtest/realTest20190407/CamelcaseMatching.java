@@ -20,6 +20,8 @@ public class CamelcaseMatching {
 //        queries=new String[]{"aksvbjLiknuTzqon","ksvjLimflkpnTzqn","mmkasvjLiknTxzqn","ksvjLiurknTzzqbn","ksvsjLctikgnTzqn","knzsvzjLiknTszqn"};pattern= "ksvjLiknTzqn";
         PrintUtils.printList(camel.camelMatch(queries,pattern), p->p+"");
     }
+
+
     public List<Boolean> camelMatch(String[] queries, String pattern) {
         List<Boolean> res=new ArrayList<>();
         Outer: for(String str:queries){
@@ -46,4 +48,10 @@ public class CamelcaseMatching {
         }
         return res;
     }
+
+    //dp
+//    public boolean match(String A, String B){
+//
+//    }
+
 }
