@@ -7,9 +7,9 @@ import java.util.Set;
  * @author shibing
  * @since 2019/3/17 11:36
  */
-public class NumbersWith1RepeatedDigit {
+public class NumbersWithRepeatedDigit {
     public static void main(String[] args) {
-        NumbersWith1RepeatedDigit digit=new NumbersWith1RepeatedDigit();
+        NumbersWithRepeatedDigit digit=new NumbersWithRepeatedDigit();
         int N=20;//1
         N=99; //9
         N=100; //10
