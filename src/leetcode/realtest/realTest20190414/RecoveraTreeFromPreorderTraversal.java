@@ -13,8 +13,8 @@ public class RecoveraTreeFromPreorderTraversal {
     public static void main(String[] args) {
         RecoveraTreeFromPreorderTraversal tree=new RecoveraTreeFromPreorderTraversal();
         String S="1-2--3--4-5--6--7";
-        S="1-2--3---4-5--6---7";
-        S="1-401--349---90--88";
+//        S="1-2--3---4-5--6---7";
+//        S="1-401--349---90--88";
         TreeNode root=tree.recoverFromPreorder(S);
         TreeNode root1=tree.recoverFromPreorder1(S);
         System.out.println(Utils.isTreeEqual(root1,root));
@@ -63,8 +63,7 @@ public class RecoveraTreeFromPreorderTraversal {
         }
         if(curD==D+1){
             node.left=dfs(S, curD);
-        }
-        else {
+        } else {
             index-=curD;
             return node;
         }
@@ -72,9 +71,8 @@ public class RecoveraTreeFromPreorderTraversal {
         while (index<S.length() && S.charAt(index)=='-') {
             index++; curD++;
         }
-        if(curD==D+1){
-            node.right=dfs(S,curD);
-        }
+        if(curD==D+1) node.right=dfs(S,curD);
+        else index-=curD;
         return node;
     }
 }
