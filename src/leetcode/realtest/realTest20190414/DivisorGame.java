@@ -8,25 +8,25 @@ public class DivisorGame {
     public static void main(String[] args) {
         DivisorGame game=new DivisorGame();
         int N=2;
-        N=3;
-        N=4;
-        N=5;
-        System.out.println(game.divisorGame(N));
-    }
-    public boolean divisorGame(int N) {
-        return recursive(N, true);
-    }
-    public boolean recursive(int N, boolean isA){
-        if(N==1) return !isA;
-        if(N==2) return isA;
-        int i=1;
-        boolean res=false;
-        while (i<=N/2 ){
-            if(N%i==0) {
-                res =res || recursive(N-i, !isA);
-            }
-            i++;
+
+        for (int i = 1; i < 100; i++) {
+            System.out.println(game.divisorGame(i));
+
         }
-        return res;
+    }
+
+    public boolean divisorGame1(int N) {
+        return (N&1)==0;
+    }
+    //dp O(N^2)
+    public boolean divisorGame(int N) {
+        boolean[] dp = new boolean[N+1];
+        for (int i = 2; i <= N; i++) {
+            for (int j = 1; j <= i/2; j++) {
+                if(i%j==0)
+                    dp[i]=dp[i]||!dp[i-j];
+            }
+        }
+        return dp[N];
     }
 }
