@@ -101,6 +101,10 @@ public class PrintUtils {
         }
     }
 
+
+    public static void printArray(boolean[] array) {
+        printArray(array, false);
+    }
     public static void printArray(boolean[] array, boolean withIndex) {
         if (array == null) return;
         int i = 0;
