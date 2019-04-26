@@ -2,10 +2,7 @@ package leetcode.realtest.realTest20190421;
 
 import utils.PrintUtils;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @author shibing
@@ -31,19 +28,20 @@ public class MatrixCellsinDistanceOrder {
 
     //Counting sort
     public int[][] allCellsDistOrder3(int R, int C, int r0, int c0) {
-        int[] counts=new int[R+C];
+        int[] counts=new int[R+C+1];
         for (int i = 0; i < R; i++)
             for (int j = 0; j < C; j++) {
                 int dist=Math.abs(i-r0)+Math.abs(j-c0);
-                counts[dist]++;
+                counts[dist+1]++;
             }
         for (int i = 1; i < counts.length; i++)
-            counts[i]+=counts[i-1];
+            counts[i] += counts[i - 1];
         int[][] res=new int[R*C][];
         for (int i = 0; i < R; i++) {
             for (int j = 0; j < C; j++) {
                 int dist=Math.abs(i-r0)+Math.abs(j-c0);
-                res[counts[dist]++]=new int[]{i,j};
+                res[counts[dist]]=new int[]{i,j};
+                counts[dist]++;
             }
         }
         return res;
