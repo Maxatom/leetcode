@@ -11,53 +11,62 @@ public class NumbersWithRepeatedDigit {
     public static void main(String[] args) {
         NumbersWithRepeatedDigit digit=new NumbersWithRepeatedDigit();
         int N=20;//1
-        N=99; //9
-        N=100; //10
-        N=999; //261
-        N=1000; //262
-        N=1;//0
+//        N=99; //9
+//        N=100; //10
+//        N=999; //261
+//        N=1000; //262
+//        N=1;//0
 //        N=5;//0
 //        N=9;//0
-        N=10; //0
-        N=11; //1
-        N=110;
+//        N=10; //0
+//        N=11; //1
+//        N=110;
 //        N=1000000000;
-        N=(int)Math.pow(10,9);
+//        N=(int)Math.pow(10,9);
         System.out.println(digit.numDupDigitsAtMostN(N));
         System.out.println(digit.numDupDigitsAtMostN1(N));
 //        System.out.println(Integer.MAX_VALUE);
     }
 
-
+    //dp
+    //f(i,j,k) means The number of i-digit integers with no repeated digits in the interval [j,k] (i>0, j<=k, j,k are i-digit integers)
+    //f(i,j,k)=k-j+1, i=1;
+    //f(i+1,10j,10k+9)=f(i,j,k)*(10-i) . others.
     public int numDupDigitsAtMostN1(int N) {
+        if(N<10) return 0;
         int n=N;
         int count=0;
-        int[] arr=new int[11];
+        int[] digit=new int[11];
         while (n>0) {
-            arr[++count]=n%10;
+            digit[++count]=n%10;
             n/=10;
         }
-        return N-recursive(N, 0,  count, new HashSet<>())+1;
-    }
-    public int recursive(int N, int cur, int total, Set<Integer> set){
-        if(cur>N || cur<0) return 0;
-        if(0==total) return 1;
-        int count=0;
-        for (int i = 0; i <=9; i++) {
-            if(set.contains(i)) continue;
-            if(cur!=0||i!=0) set.add(i);
-            count+=recursive(N,cur+i*pow10(total-1), total-1,set);
-            set.remove(i);
+        int noRepeatBaseSum=9;
+        int pre=9, cur;
+        for (int i = 1; i < count-1; i++) {
+            cur=pre*(10-i);
+            noRepeatBaseSum+=cur;
+            pre=cur;
         }
-        return count;
+//        System.out.println("noRepeatBaseSum="+noRepeatBaseSum);
+        int[] digitcnt=new int[10];
+        int noRepeatRest=0;
+        pre=1;
+        boolean duplicate=false;
+        for (int i = 1; i <= count; i++) {
+            int curdigit=digit[count+1-i];
+            noRepeatRest=i==1?9:pre*(10-i+1);
+            if(!duplicate) {
+                for (int j = curdigit+1; j < 10; j++)
+                    noRepeatRest -= (digitcnt[j]==0?1:0);
+                digitcnt[curdigit]++;
+                if(digitcnt[curdigit]>1) duplicate=true;
+            }
+            pre=noRepeatRest;
+        }
+//        System.out.println("noRepeatRest="+noRepeatRest);
+        return N-noRepeatBaseSum-noRepeatRest;
     }
-    public int pow10(int n){
-        int res=1;
-        while (n-->0)
-            res*=10;
-        return res;
-    }
-
 
 
     //Math
