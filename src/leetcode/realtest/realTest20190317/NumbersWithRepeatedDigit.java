@@ -94,9 +94,8 @@ public class NumbersWithRepeatedDigit {
             }
             if(maxcur<arr[i]) rems++;
             int cnt=rems;
-            for (int j = 1; j < i; j++) {
+            for (int j = 1; j < i; j++)
                 cnt*=(10-(count-i)-j);
-            }
             res+=cnt;
             if(maxcur<arr[i]) {
                 set.remove(maxcur);
@@ -113,9 +112,8 @@ public class NumbersWithRepeatedDigit {
         int count=0, N=n;
         if(num>0) {
             count=num;
-            while (--n > 0) {
+            while (--n > 0)
                 count *= (10 - n);
-            }
         }
         count+=count(N-1, 9);
         return count;
