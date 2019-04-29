@@ -66,11 +66,9 @@ public class ColoringABorder {
             if(isborder)
                 grid[cell[0]][cell[1]]=color;
         }
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < M; i++)
+            for (int j = 0; j < N; j++)
                 if(grid[i][j]==color) grid[i][j]=cache;
-            }
-        }
         return grid;
     }
 }
