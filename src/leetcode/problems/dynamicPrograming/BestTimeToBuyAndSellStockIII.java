@@ -1,7 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class BestTimeToBuyAndSellStockIII {
             System.out.printf("------------------------------------\n cases:");
             int[] testArray= PrintUtils.convertStringToIntArray(s);
 //            int[] testArray=ArrayGenerator.intArray(i+14, 0,20);
-            PrintUtils.printIntArray(testArray);
+            PrintUtils.printArray(testArray);
             int result=stockIII.maxProfit(testArray);
             int result1=stockIII.maxProfit1(testArray);
             int result2=stockIII.maxProfit2(testArray);

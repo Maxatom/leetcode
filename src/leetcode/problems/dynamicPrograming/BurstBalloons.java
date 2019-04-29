@@ -24,7 +24,7 @@ public class BurstBalloons {
 //        test=new int[]{9,1,7,9,3,5,6,1}; //1593
 //        test=new int[]{7,9,8,0,7,1,3,5,5,2,3,3};  //1717
         test=ArrayGenerator.intArray(1000,1,20);
-//        PrintUtils.printIntArray(test);
+//        PrintUtils.printArray(test);
         long start=System.currentTimeMillis();
 //        System.out.println(balloons.maxCoins(test));
 //        System.out.println(balloons.maxCoins1(test)+", time="+(System.currentTimeMillis()-start)+", times="+balloons.times+", map.size="+balloons.map.size());

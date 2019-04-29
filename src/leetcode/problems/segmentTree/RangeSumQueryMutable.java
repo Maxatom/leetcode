@@ -175,7 +175,7 @@ class BinaryIndexedTree{
             int j=i+(i&-i);
             if(j<BIT.length) BIT[j]+=BIT[i];
         }
-//        PrintUtils.printIntArray(BIT);
+//        PrintUtils.printArray(BIT);
     }
 
     public void update(int i, int val){

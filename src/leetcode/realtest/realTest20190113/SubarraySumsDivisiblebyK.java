@@ -74,7 +74,7 @@ public class SubarraySumsDivisiblebyK {
             }
             count[i]+=count[i-1];
         }
-        PrintUtils.printIntArray(count);
+        PrintUtils.printArray(count);
         return count[A.length-1];
     }
 }

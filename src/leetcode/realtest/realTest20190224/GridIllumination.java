@@ -1,8 +1,6 @@
 package leetcode.realtest.realTest20190224;
 
 import utils.ThreeTuple;
-import utils.ThreeTuple;
-import utils.Tuple;
 import utils.Tuple;
 import utils.PrintUtils;
 
@@ -28,8 +26,8 @@ public class GridIllumination {
         ThreeTuple<Integer, int[][], int[][]> threeTuple=
         grid.readArrayFromFile("E:\\MyProjects\\springdemo\\testlearning\\src\\main\\java\\leetcode\\realTest20190224\\gridData");
         N=threeTuple.first; lamps=threeTuple.second; queries=threeTuple.third;
-        PrintUtils.printIntArray(grid.gridIllumination1(N, lamps, queries));
-//        PrintUtils.printIntArray(grid.gridIllumination(N, lamps, queries));
+        PrintUtils.printArray(grid.gridIllumination1(N, lamps, queries));
+//        PrintUtils.printArray(grid.gridIllumination(N, lamps, queries));
         System.out.println(Math.pow(10, 18)+","+Integer.MAX_VALUE);
     }
 

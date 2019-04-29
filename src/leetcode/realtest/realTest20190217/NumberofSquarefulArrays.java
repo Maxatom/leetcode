@@ -63,7 +63,7 @@ public class NumberofSquarefulArrays {
     private Map<Integer,Integer> cache=new HashMap<>();
     public int recursive(int[] A, int pre, int rem, int state, int[] P){
         if(rem==0) {
-//            PrintUtils.printIntArray(P);
+//            PrintUtils.printArray(P);
             return 1;
         }
         int key=(pre+2<<A.length)+state;

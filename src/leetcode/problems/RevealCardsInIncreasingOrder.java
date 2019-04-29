@@ -1,7 +1,6 @@
 package leetcode.problems;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 import java.util.Arrays;
 
@@ -22,9 +21,9 @@ public class RevealCardsInIncreasingOrder {
 //        test=ArrayGenerator.intArrayDinstinct(20, 0, 30);
         int[] result=revealCard.deckRevealedIncreasing(test);
         System.out.print("reveal result:");
-        PrintUtils.printIntArray(result);
+        PrintUtils.printArray(result);
         System.out.print("restored:");
-        PrintUtils.printIntArray(revealCard.revealCards(result));
+        PrintUtils.printArray(revealCard.revealCards(result));
     }
     //恢复顺序
     public int[] revealCards(int[] deck){

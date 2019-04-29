@@ -14,7 +14,7 @@ public class SquaresofaSortedArray {
         int[] test=new int[]{-4,-1,0,3,10};
          test=new int[]{-7,-3,2,3,11};
         test=new int[]{1};
-        PrintUtils.printIntArray(array.sortedSquares(test));
+        PrintUtils.printArray(array.sortedSquares(test));
     }
     //O(NlogN) sort
     public int[] sortedSquares(int[] A) {

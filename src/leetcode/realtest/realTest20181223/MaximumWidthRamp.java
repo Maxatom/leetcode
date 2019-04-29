@@ -21,7 +21,7 @@ public class MaximumWidthRamp {
         String company="E:\\MyProjects\\springdemo\\testlearning\\src\\main\\java\\leetcode\\realTest20181223\\MaximumWidthRampInputData.txt";
         String apartment="E:\\MyProjects\\springdemo\\testlearning\\src\\main\\java\\leetcode\\realTest20181223\\MaximumWidthRampInputData.txt";
         testcase=PrintUtils.readArrayFromFile(company);
-//        PrintUtils.printIntArray(testcase);
+//        PrintUtils.printArray(testcase);
         long start=System.currentTimeMillis();
 //        System.out.println(ramp.maxWidthRamp(testcase)+", time="+(System.currentTimeMillis()-start)+", times1="+ramp.times1);
         start=System.currentTimeMillis();

@@ -63,8 +63,8 @@ public class LongestTurbulentSubarray {
             }
             max=Math.max(max,Math.max(dp1[i], dp2[i]));
         }
-        PrintUtils.printIntArray(dp1);
-        PrintUtils.printIntArray(dp2);
+        PrintUtils.printArray(dp1);
+        PrintUtils.printArray(dp2);
         return max+1;
     }
 }

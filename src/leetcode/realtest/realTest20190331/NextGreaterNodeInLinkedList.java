@@ -15,8 +15,8 @@ public class NextGreaterNodeInLinkedList {
         ListNode head=PrintUtils.convertArrayToListNode(new int[]{2,1,5});
         head=PrintUtils.convertArrayToListNode(new int[]{2,7,4,3,5});
         head=PrintUtils.convertArrayToListNode(new int[]{1,7,5,1,9,2,5,1});
-        PrintUtils.printIntArray(linkedList.nextLargerNodes(head));
-        PrintUtils.printIntArray(linkedList.nextLargerNodes1(head));
+        PrintUtils.printArray(linkedList.nextLargerNodes(head));
+        PrintUtils.printArray(linkedList.nextLargerNodes1(head));
     }
 
     //using stack  O(N)

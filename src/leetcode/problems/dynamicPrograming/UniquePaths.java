@@ -1,7 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 /**
  * @author shibing
@@ -52,7 +51,7 @@ public class UniquePaths {
             for (int j = 1; j <= m; j++) {
                 path[j]+=path[j-1];
             }
-            PrintUtils.printIntArray(path);
+            PrintUtils.printArray(path);
         }
         return path[m];
     }

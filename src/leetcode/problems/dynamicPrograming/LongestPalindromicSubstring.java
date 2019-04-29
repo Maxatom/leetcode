@@ -52,7 +52,7 @@ public class LongestPalindromicSubstring {
                  end=start+p[i]-1;
              }
         }
-//        PrintUtils.printIntArray(p);
+//        PrintUtils.printArray(p);
         return s.substring(start,end);
     }
     //DP  O(N^2)

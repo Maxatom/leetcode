@@ -1,8 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.ArrayGenerator;
-import utils.ArrayGenerator;
-import utils.PrintUtils;
 import utils.PrintUtils;
 
 import java.util.LinkedList;
@@ -21,8 +19,8 @@ public class Knapsack01 {
             int[] wt = ArrayGenerator.intArray(15, 5, 11);
 //            val=PrintUtils.convertStringToIntArray("[3, 4, 3, 1, 5, 1, 2, 1, 5, 5, 1, 5, 2, 5, 1]");
 //            wt=PrintUtils.convertStringToIntArray("[7, 5, 7, 6, 7, 10, 10, 5, 8, 7, 8, 10, 6, 8, 10]");
-            PrintUtils.printIntArray(val);
-            PrintUtils.printIntArray(wt);
+            PrintUtils.printArray(val);
+            PrintUtils.printArray(wt);
 //            int result1=knapsack01.recursive(val, wt, 0, 15, 0);
 //            System.out.println("result1="+result1 + ", times=" + knapsack01.times);
 

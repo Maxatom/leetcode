@@ -36,7 +36,7 @@ public class SatisfiabilityofEqualityEquations {
         return true;
     }
     public int find(int x) {
-//        PrintUtils.printIntArray(uf);
+//        PrintUtils.printArray(uf);
         if (x != uf[x]) uf[x] = find(uf[x]);
         return uf[x];
     }

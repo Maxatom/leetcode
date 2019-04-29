@@ -1,7 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 import java.util.Arrays;
 
@@ -33,7 +32,7 @@ public class CoinChange2 {
                 dp[j]=dp[j]+dp[j-coin];
             }
         }
-        PrintUtils.printIntArray(dp);
+        PrintUtils.printArray(dp);
         return dp[amount];
     }
 

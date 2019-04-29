@@ -26,20 +26,20 @@ public class PrintUtils {
      * 打印整数数组
      * @param array 数组
      */
-    public static void printIntArray(int[] array){
-        printIntArray(array, -1, false);
+    public static void printArray(int[] array){
+        printArray(array, -1, false);
     }
 
-    public static void printIntArray(String tips,int[] array){
+    public static void printArray(String tips, int[] array){
         System.out.print(tips);
-        printIntArray(array, -1, false);
+        printArray(array, -1, false);
     }
-    public static void printIntArray(int[] array, int width){
-        printIntArray(array, width, false);
+    public static void printArray(int[] array, int width){
+        printArray(array, width, false);
     }
 
     public static void printIntArrayWithIndex(int[] array){
-        printIntArray(array, -1, true);
+        printArray(array, -1, true);
     }
 
     /**
@@ -48,7 +48,7 @@ public class PrintUtils {
      * @param width 每个数打印宽度
      * @param withIndex 索引
      */
-    public static void printIntArray(int[] array, int width, boolean withIndex){
+    public static void printArray(int[] array, int width, boolean withIndex){
         if(array==null) return;
         int i=0;
         StringBuilder format=new StringBuilder("%").append(width).append("d");
@@ -82,7 +82,7 @@ public class PrintUtils {
                 }else if (x.length==0) {
                     System.out.println("[]");
                 }else {
-                    printIntArray(x, width, withIndex);
+                    printArray(x, width, withIndex);
                 }
             }
 //            System.out.println("]");

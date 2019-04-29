@@ -56,7 +56,7 @@ public class LongestPalindromicSubsequence {
                     dp[j]= cur+2;
                 cur=Math.max(temp, cur);
             }
-//            PrintUtils.printIntArray(dp);
+//            PrintUtils.printArray(dp);
         }
         int max=0;
         for(int i:dp) max=i>max?i:max;
@@ -72,9 +72,9 @@ public class LongestPalindromicSubsequence {
         Arrays.fill(cur,1);
         for (int d = 1; d < n; d++) {
 //            System.out.print("prev: ");
-//            PrintUtils.printIntArray(prev);
+//            PrintUtils.printArray(prev);
 //            System.out.print("cur: "+d+":");
-//            PrintUtils.printIntArray(cur);
+//            PrintUtils.printArray(cur);
             for (int i = 0; i < n-d; i++) {
                 int j=i+d;
                 next[i]=s.charAt(i)==s.charAt(j)?(prev[i+1]+2):Math.max(cur[i], cur[i+1]);
@@ -82,7 +82,7 @@ public class LongestPalindromicSubsequence {
             //swap
             int[] temp=prev; prev=cur; cur=next; next=temp;
         }
-//        PrintUtils.printIntArray(cur);
+//        PrintUtils.printArray(cur);
         return cur[0];
     }
 

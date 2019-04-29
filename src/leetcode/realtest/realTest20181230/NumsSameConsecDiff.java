@@ -1,8 +1,6 @@
 package leetcode.realtest.realTest20181230;
 
 import utils.Tuple;
-import utils.Tuple;
-import utils.TwoTuple;
 import utils.TwoTuple;
 import utils.PrintUtils;
 
@@ -22,10 +20,10 @@ public class NumsSameConsecDiff {
         testcase=Tuple.tuple(9,7);
         int[] result=diff.numsSameConsecDiff1(testcase.first,testcase.second);
         Arrays.sort(result);
-        PrintUtils.printIntArray(result);
+        PrintUtils.printArray(result);
         int[] result2=diff.numsSameConsecDiff2(testcase.first,testcase.second);
         Arrays.sort(result2);
-        PrintUtils.printIntArray(result2);
+        PrintUtils.printArray(result2);
     }
 
     public int[] numsSameConsecDiff2(int N, int K) {

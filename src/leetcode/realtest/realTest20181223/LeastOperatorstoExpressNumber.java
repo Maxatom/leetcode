@@ -63,7 +63,7 @@ public class LeastOperatorstoExpressNumber {
                 ops[i]=Math.min(ops[i-temp[0]/x]+temp[1], ops[temp[0]-i] + temp[1]+1);
             else ops[i]=ops[i-temp[0]/x]+temp[1];
         }
-//        PrintUtils.printIntArray(ops);
+//        PrintUtils.printArray(ops);
         return ops[target];
     }
     int[] getN(int x, int target){

@@ -69,7 +69,7 @@ public class LongestCommonSubstring {
             //swap array
             int[] temp=pre; pre=cur; cur=temp;
         }
-//        PrintUtils.printIntArray(pre);
+//        PrintUtils.printArray(pre);
         return s1.substring(end - max + 1, end + 1);
     }
         //DP  O(NM)  space O(nm)

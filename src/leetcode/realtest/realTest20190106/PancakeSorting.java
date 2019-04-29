@@ -18,7 +18,7 @@ public class PancakeSorting {
         testcase=PrintUtils.convertStringToIntArray("[56,90,8,3,1]");
         List<Integer> list=sorting.pancakeSort(testcase);
         PrintUtils.printList(list, p->p+"");
-        PrintUtils.printIntArray(testcase);
+        PrintUtils.printArray(testcase);
     }
 
 
@@ -57,7 +57,7 @@ public class PancakeSorting {
 //    boolean validation(int[] A, List<Integer> re){
 //        for (Integer e:re)
 //            reverse(A,0, e-1);
-//        PrintUtils.printIntArray(A);
+//        PrintUtils.printArray(A);
 //        for (int i = 0; i < A.length; i++) {
 //            if(A[i]>A[i+1]) return false;
 //        }

@@ -42,7 +42,7 @@ public class LongestIncreasingSubsequence {
                 if(s.charAt(j)<=s.charAt(i)) dp[i]=Math.max(dp[i],dp[j]+1);
             }
         }
-        PrintUtils.printIntArray(dp);
+        PrintUtils.printArray(dp);
         return Utils.max(dp);
     }
 
@@ -59,7 +59,7 @@ public class LongestIncreasingSubsequence {
             dp[pos]=nums[i];
             if(pos==max+1) ++max;
         }
-        PrintUtils.printIntArray(dp);
+        PrintUtils.printArray(dp);
         return max;
     }
 
@@ -74,7 +74,7 @@ public class LongestIncreasingSubsequence {
                 if(nums[j]<nums[i]) dp[i]=Math.max(dp[i],dp[j]+1);
             max=Math.max(max, dp[i]);
         }
-//        PrintUtils.printIntArray(dp);
+//        PrintUtils.printArray(dp);
         return max;
     }
 }

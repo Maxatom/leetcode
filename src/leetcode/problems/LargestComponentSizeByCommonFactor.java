@@ -21,7 +21,7 @@ public class LargestComponentSizeByCommonFactor {
 //        test=ArrayGenerator.intArrayDinstinct(20000,0 , 100000);
 //        test=PrintUtils.readArrayFromFile("E:\\MyProjects\\springdemo\\testlearning\\src\\main\\java\\leetcode\\data.txt");
 //        test=PrintUtils.readArrayFromFile("E:\\javastudy\\multimodule\\testlearning\\src\\main\\java\\leetcode\\data.txt");
-        PrintUtils.printIntArray(test);
+        PrintUtils.printArray(test);
 
         long start=System.currentTimeMillis();
         System.out.println(factor.largestComponentSize(test)+", time="+(System.currentTimeMillis()-start)+

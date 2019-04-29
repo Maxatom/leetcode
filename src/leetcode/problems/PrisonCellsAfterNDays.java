@@ -23,28 +23,28 @@ public class PrisonCellsAfterNDays {
             int[] testcase2 = Arrays.copyOf(testcase, testcase.length);
             int N = 100;
             int[] result;
-//            PrintUtils.printIntArray("testcase:",testcase);
+//            PrintUtils.printArray("testcase:",testcase);
 //            System.out.println("num=" + days.arrayToInt(testcase));
 //            System.out.println("-------------------begin");
             long start = System.currentTimeMillis();
 //            result= days.prisonAfterNDays(testcase, N);
 //            int reuslt0 = days.arrayToInt(result);
 //            System.out.println("-------------------time=" + (System.currentTimeMillis() - start) + ",  result0=" + reuslt0);
-//                PrintUtils.printIntArray(result);
+//                PrintUtils.printArray(result);
 
 //            System.out.println("-------------------1---begin");
 //            start = System.currentTimeMillis();
 //            result = days.prisonAfterNDays1(testcase1, N);
 //            int result1 = days.arrayToInt(result);
 //            System.out.println("-------------------time1=" + (System.currentTimeMillis() - start) + ",  result1=" + result1);
-//                PrintUtils.printIntArray(result);
+//                PrintUtils.printArray(result);
 
 //            System.out.println("-------------------2---begin");
             start = System.currentTimeMillis();
             result = days.prisonAfterNDays2(testcase2, N);
             int result2 = days.arrayToInt(result);
 //            System.out.println("-------------------time2=" + (System.currentTimeMillis() - start) + ",  result=" + result2);
-//            PrintUtils.printIntArray(result);
+//            PrintUtils.printArray(result);
 
 //            if (result1 != result2) throw new Exception("Not Equal");
         }
@@ -61,7 +61,7 @@ public class PrisonCellsAfterNDays {
         if(num<max && (num&1)==0) medians[count++]=num;
         for (int i = 0; i < N; i++) {
             num = (~(num << 1) ^ (num >> 1)) & max;
-//            PrintUtils.printIntArray("num="+num+", j=:"+(count-1), intToArray(num, cells.length));
+//            PrintUtils.printArray("num="+num+", j=:"+(count-1), intToArray(num, cells.length));
 
             //与上一个数相等，退出
             if (count != 0 && num == medians[count - 1]) {
@@ -89,7 +89,7 @@ public class PrisonCellsAfterNDays {
         for (int i = 0; i < N; i++) {
             num=(~(num<<1)^(num>>1))&max;
 //            System.out.println(num);
-//            PrintUtils.printIntArray("j=:",intToArray(num, cells.length));
+//            PrintUtils.printArray("j=:",intToArray(num, cells.length));
 
             if(count!=0&&num==medians[count-1]){
                 System.out.println("count="+(count-1));
@@ -121,7 +121,7 @@ public class PrisonCellsAfterNDays {
                 cellNext[j]=1-(cells[j-1]^cells[j+1]);
             }
 //            if(i>N-10)
-//                PrintUtils.printIntArray(cellNext);
+//                PrintUtils.printArray(cellNext);
 //            System.out.println(arrayToInt(cellNext));
             int[] temp=cells;
             cells=cellNext;

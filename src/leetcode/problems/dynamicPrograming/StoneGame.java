@@ -1,7 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,7 +22,7 @@ public class StoneGame {
         array=PrintUtils.convertStringToIntArray("[1, 3, 1]");
 //        array=PrintUtils.convertStringToIntArray("[7,7,12,16,41,48,41,48,11,9,34,2,44,30,27,12,11,39,31,8,23,11,47,25,15,23,4,17,11,50,16,50,38,34,48,27,16,24,22,48,50,10,26,27,9,43,13,42,46,24]");
 //        array=game.generate(6);
-        PrintUtils.printIntArray(array);
+        PrintUtils.printArray(array);
         System.out.println(game.stoneGame3(array));
         System.out.println(game.stoneGame5(array));
     }
@@ -75,7 +74,7 @@ public class StoneGame {
                 if(i==j) dp[i]=piles[i];
                 else dp[i]=Math.max(piles[i]-dp[i+1], piles[j]-dp[i]);
             }
-        PrintUtils.printIntArray(dp);
+        PrintUtils.printArray(dp);
         return dp[0]>0;
     }
 

@@ -36,13 +36,13 @@ public class BestTimeToBuyAndSellStockIV {
             if(++i!=9) continue;
                 int[] array= PrintUtils.convertStringToIntArray(testCase.first);
                 array=ArrayGenerator.intArray((int)Math.pow(10,6),0, 1000);
-//                PrintUtils.printIntArray(array);
+//                PrintUtils.printArray(array);
             System.out.printf("------------------------------------\n testcase: %s \n", testCase);
                 long start=System.currentTimeMillis();
 //                stock.cache.clear();
 //                System.out.println(stock.maxProfit(testCase.second, PrintUtils.convertStringToIntArray(testCase.first)));
 //                System.out.printf(" times=%s, exetimes=%s, duration=%d, map.size=%d\n", stock.times,stock.exetimes, System.currentTimeMillis()-start, stock.cache.size());
-//                PrintUtils.printIntArray(stock.getAscendingSubSeq(PrintUtils.convertStringToIntArray(testCase.first)));
+//                PrintUtils.printArray(stock.getAscendingSubSeq(PrintUtils.convertStringToIntArray(testCase.first)));
 
 //                stock.cache.clear(); stock.times=0;stock.exetimes=0;
 //                start=System.currentTimeMillis();

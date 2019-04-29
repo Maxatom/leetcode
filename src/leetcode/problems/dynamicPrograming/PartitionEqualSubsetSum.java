@@ -1,7 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +28,7 @@ public class PartitionEqualSubsetSum {
 //            if(++i>3) continue;
             int[] test= PrintUtils.convertStringToIntArray(s);
             System.out.printf("------------------------------\n cases:");
-            PrintUtils.printIntArray(test);
+            PrintUtils.printArray(test);
             long start=System.currentTimeMillis();
             boolean result1=subsetSum.canPartition1(test);
             System.out.printf(" time1=%d, result1=%b\n", (System.currentTimeMillis()-start), result1);

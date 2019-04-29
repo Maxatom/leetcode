@@ -40,7 +40,7 @@ public class MinimumCostForTickets {
                 dp[i] = Math.min(dp[i], dp[i > 30 ? (i - 30) : 0] + costs[2]);
             }
         }
-//        PrintUtils.printIntArray(dp);
+//        PrintUtils.printArray(dp);
         return dp[n];
     }
 

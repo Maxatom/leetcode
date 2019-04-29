@@ -1,8 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
-import utils.Utils;
 import utils.Utils;
 
 import java.util.HashMap;
@@ -28,7 +26,7 @@ public class MaximumSubarray {
         MaximumSubarray subarray=new MaximumSubarray();
         for (int[] s1: PrintUtils.convertStringTo2DIntArray(str)) {
             System.out.println("input: -----------------------------------------");
-            PrintUtils.printIntArray(s1);
+            PrintUtils.printArray(s1);
             System.out.println("maxSubArray = "+subarray.maxSubArray(s1));
             System.out.println("maxSubArray1 = "+subarray.maxSubArray1(s1));
             System.out.println("maxSubArray3 = "+subarray.maxSubArray3(s1));

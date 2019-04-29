@@ -13,7 +13,7 @@ public class SumofEvenNumbersAfterQueries {
 //        A=new int[]{1}; queries=new int[][]{{1,0},{2,0}};
 //        A=new int[]{1}; queries=new int[][]{{1,0},{1,0}};
 //        A=new int[]{1}; queries=new int[][]{{4,0}};
-        PrintUtils.printIntArray(sum.sumEvenAfterQueries(A, queries));
+        PrintUtils.printArray(sum.sumEvenAfterQueries(A, queries));
     }
     public int[] sumEvenAfterQueries(int[] A, int[][] queries) {
         int sum=0;

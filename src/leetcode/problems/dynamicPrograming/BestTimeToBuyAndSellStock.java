@@ -1,7 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 /**
  * difficulty: EASY
@@ -15,7 +14,7 @@ public class BestTimeToBuyAndSellStock {
         int[][] testCases= PrintUtils.convertStringTo2DIntArray(s);
         for (int[] testCase:testCases){
             System.out.println("input: ----------------");
-            PrintUtils.printIntArray(testCase);
+            PrintUtils.printArray(testCase);
             System.out.println(stock.maxProfit(testCase));
         }
 

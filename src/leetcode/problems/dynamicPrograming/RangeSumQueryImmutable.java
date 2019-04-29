@@ -1,7 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
 import utils.PrintUtils;
-import utils.PrintUtils;
 
 /**
  * @author shibing
@@ -13,7 +12,7 @@ public class RangeSumQueryImmutable {
         int[] test=new int[]{-2, 0, 3, -5, 2, -1};
          test=new int[]{};
         RangeSumQueryImmutable rangeSum=new RangeSumQueryImmutable(test);
-        PrintUtils.printIntArray(rangeSum.sum);
+        PrintUtils.printArray(rangeSum.sum);
         System.out.println(rangeSum.sumRange(0,0));
     }
     public RangeSumQueryImmutable(int[] nums) {
