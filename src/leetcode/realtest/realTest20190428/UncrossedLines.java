@@ -12,7 +12,7 @@ public class UncrossedLines {
         int[] A = {1,4,2}, B = {1,2,4};
         A = new int[]{2,5,1,2,5}; B =new int[]{10,5,2,1,5,2};
         A = new int[]{1,3,7,1,7,5}; B =new int[]{1,9,2,5,1};
-        A=new int[]{1}; B=new int[]{2};
+//        A=new int[]{1}; B=new int[]{2};
         System.out.println(lines.maxUncrossedLines(A,B ));
         System.out.println(lines.maxUncrossedLines1(A,B ));
     }
