@@ -13,37 +13,31 @@ public class MinimumScoreTriangulationofPolygon {
     public static void main(String[] args) {
         MinimumScoreTriangulationofPolygon polygon=new MinimumScoreTriangulationofPolygon();
         int[] A={1,2,3};
-        A=new int[]{3,7,4,5};
-        A=new int[]{1,3,1,4,1,5};
+//        A=new int[]{3,7,4,5};
+//        A=new int[]{1,3,1,4,1,5};
 //        A=new int[]{3,4,5,2,2,4};
 //        A=new int[]{38,76,69,32,24,35,82,30,86,77,92,3,35,20,84,67,23,58,94,10};
         System.out.println(polygon.minScoreTriangulation(A));
         System.out.println(polygon.minScoreTriangulation1(A));
-        System.out.println(polygon.cache.toString());
+//        System.out.println(polygon.cache.toString());
     }
-
-
-    Map<Integer, Integer> cache=new HashMap<>();
+    //dp
     public int minScoreTriangulation1(int[] A) {
-        if(A.length==3) return A[0]*A[1]*A[2];
-        return recursive(A,0,A.length-1);
-    }
-
-    int recursive(int[] A, int L, int R){
-        int N=A.length+1;
-        if((R-L+1+A.length)%A.length!=0 && (R-L+1+A.length)%A.length<3) return 0;
-        if(L!=R && (R-L+1+A.length)%A.length==3) return A[L]*A[(L+1)%A.length]*A[R];
-        if(cache.containsKey(L*100+R)) return cache.get(L*100+R);
         int min=Integer.MAX_VALUE;
-        for (int i = L; i <= (R-2+A.length)%A.length; i=(i+1)%(A.length+1)) {
-            for (int j = i+1; j <=(R-1+A.length)%A.length ; j=(j+1)%(A.length+1)) {
-                for (int k = j+1; k <= R; k=(k+1)%(A.length+1)) {
-                    int temp=A[i]*A[j]*A[k]+recursive(A, i,j)+recursive(A, j,k)+recursive(A,k ,i);
-                    min=Math.min(min, temp);
+        int[][] dp=new int[A.length][A.length];
+        for(int d=3; d<=A.length; d++) {
+            for (int i = 0; i < A.length; i++) {
+                int ji=i+d-1, j=ji%A.length;
+                dp[i][j]=Integer.MAX_VALUE;
+                for (int k = i+1; k < ji ; k++) {
+                    int ki=k%A.length;
+                    dp[i][j] = Math.min(dp[i][j], A[i] * A[ki] * A[j] + dp[i][ki] + dp[ki][j]);
                 }
             }
         }
-        cache.put(L*100+R, min);
+        for (int i = 0; i < dp.length-1; i++)
+            for (int j = i+1; j < dp.length; j++)
+                min=Math.min(dp[i][j]+dp[j][i], min);
         return min;
     }
 
