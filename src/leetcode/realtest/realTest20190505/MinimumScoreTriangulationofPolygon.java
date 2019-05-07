@@ -13,14 +13,33 @@ public class MinimumScoreTriangulationofPolygon {
     public static void main(String[] args) {
         MinimumScoreTriangulationofPolygon polygon=new MinimumScoreTriangulationofPolygon();
         int[] A={1,2,3};
-//        A=new int[]{3,7,4,5};
-//        A=new int[]{1,3,1,4,1,5};
-//        A=new int[]{3,4,5,2,2,4};
-//        A=new int[]{38,76,69,32,24,35,82,30,86,77,92,3,35,20,84,67,23,58,94,10};
-        System.out.println(polygon.minScoreTriangulation(A));
+        A=new int[]{3,7,4,5};
+        A=new int[]{1,3,1,4,1,5};
+        A=new int[]{3,4,5,2,2,4};
+        A=new int[]{38,76,69,32,24,35,82,30,86,77,92,3,35,20,84,67,23,58,94,10};
+//        System.out.println(polygon.minScoreTriangulation(A));
         System.out.println(polygon.minScoreTriangulation1(A));
-//        System.out.println(polygon.cache.toString());
+        System.out.println(polygon.minScoreTriangulation2(A));
     }
+
+    //another dp
+    public int minScoreTriangulation2(int[] A) {
+        int n=A.length;
+        int[][] dp=new int[n][n];
+        for(int d=2;d<n; d++){
+            for (int i = 0; i +d < n; i++) {
+                int j=i+d;
+                dp[i][j]=Integer.MAX_VALUE;
+                for (int k = i+1; k < j; k++) {
+                    dp[i][j]=Math.min(dp[i][j], dp[i][k]+dp[k][j]+A[i]*A[k]*A[j]);
+                }
+            }
+        }
+//        PrintUtils.print2DIntArray(dp);
+        return dp[0][n-1];
+    }
+
+
     //dp
     public int minScoreTriangulation1(int[] A) {
         int min=Integer.MAX_VALUE;
@@ -35,6 +54,7 @@ public class MinimumScoreTriangulationofPolygon {
                 }
             }
         }
+//        PrintUtils.print2DIntArray(dp);
         for (int i = 0; i < dp.length-1; i++)
             for (int j = i+1; j < dp.length; j++)
                 min=Math.min(dp[i][j]+dp[j][i], min);
