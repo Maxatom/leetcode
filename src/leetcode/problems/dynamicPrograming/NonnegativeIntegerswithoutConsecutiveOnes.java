@@ -15,7 +15,7 @@ public class NonnegativeIntegerswithoutConsecutiveOnes {
 //        num=15;
 //        num=16;
         num=454;
-        num=10;
+//        num=10;
 //        for (int i = 1; i < 20; i++) {
 //            System.out.println("i="+i);
             System.out.println(ones.findIntegers(num));
@@ -37,16 +37,14 @@ public class NonnegativeIntegerswithoutConsecutiveOnes {
             sum[i]=sum[i-1]+dp[i];
         }
         //2^n~num
-        sum[bits.length]=sum[bits.length-1]+recursive(dp, sum, bits, 0);
-//        PrintUtils.printArray(dp);
+        sum[bits.length]=sum[bits.length-1]+recursive(sum, bits, 0);
         return sum[bits.length];
     }
-    int recursive(int[] dp, int[] sum,char[] bits, int i){
+    int recursive( int[] sum,char[] bits, int i){
         if(bits[i+1]=='1') return sum[bits.length-i-2];
-        int j=i;
         i++;
         while (i<bits.length && bits[i]=='0') i++;
         if(i==bits.length-1) return 2;
-        return i==bits.length? sum[bits.length-j] : dp[bits.length-i-1] + recursive(dp, sum, bits, i);
+        return i==bits.length? 1 : sum[bits.length-i-1] + recursive(sum, bits, i);
     }
 }
