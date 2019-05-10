@@ -69,6 +69,30 @@ public class Utils {
         return result;
     }
 
+    /**
+     * quickSort
+     * @param a
+     * @param c
+     * @param <T> type
+     */
+    public static <T> void quickSort(T[] a, Comparator<? super T> c) {
+        quickSort0(a, 0, a.length - 1, c);
+    }
+    private static <T> void quickSort0(T[] A, int left, int right, Comparator<? super T> c) {
+        if (left >= right) return;
+        T x = A[left];
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && c.compare(A[j], x) ==1 ) j--;
+            if (i < j) A[i++] = A[j];
+            while (i < j && c.compare(A[i] , x)==-1) i++;
+            if (i < j) A[j--] = A[i];
+        }
+        A[i] = x;
+        quickSort0(A, left, i - 1, c);
+        quickSort0(A, i + 1, right, c);
+    }
+
     //快速排序
     public static void quickSort(int[] A) {
         quickSort0(A, 0, A.length - 1);
