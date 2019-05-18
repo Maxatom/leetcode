@@ -22,6 +22,8 @@ import java.util.stream.Stream;
  * @since 2018-11-26 14:16:44
  **/
 public class PrintUtils {
+
+    //-----------------------------------Int array-----------------------------------------
     /**
      * 打印整数数组
      * @param array 数组
@@ -49,7 +51,7 @@ public class PrintUtils {
      * @param withIndex 索引
      */
     public static void printArray(int[] array, int width, boolean withIndex){
-        if(array==null) return;
+        if(array==null) System.out.println("null");;
         int i=0;
         StringBuilder format=new StringBuilder("%").append(width).append("d");
         System.out.print("[");
@@ -77,36 +79,48 @@ public class PrintUtils {
         if(a!=null) {
 //            System.out.print("[");
             for (int[] x : a) {
-                if (x == null){
-                    System.out.println("null");
-                }else if (x.length==0) {
-                    System.out.println("[]");
-                }else {
-                    printArray(x, width, withIndex);
-                }
+                printArray(x, width, withIndex);
             }
 //            System.out.println("]");
         }
     }
-    public static void print2DArrayWithIndex(boolean[][] a){
+
+
+    //------------------------------------double array--------------------------------
+    public static void printArray(double[] array, int width, boolean withIndex, int precision){
+        if(array==null) System.out.println("null");;
         int i=0;
-        for (boolean[] x: a){
-            System.out.printf("%3d:",i++);
-            printArray(x, true);
+        StringBuilder format=new StringBuilder("%").append(width).append(".").append(precision).append("f");
+        System.out.print("[");
+        for (double t:array){
+            if(withIndex) System.out.print(i+":");
+            if(width!=-1) System.out.printf(format.toString(),t);
+            else System.out.print(t);
+            if(i!=array.length-1) System.out.print(", ");
+            i++;
         }
+        System.out.println("]");
     }
-    public static void print2DArray(boolean[][] a){
-        for (boolean[] x: a){
-            printArray(x, false);
+
+    public static void print2DDoubleArray(double[][] a){
+        print2DDoubleArray(a, 5, false, 2);
+    }
+    public static void print2DDoubleArray(double[][] a, int width, boolean withIndex, int precision){
+        if(a!=null) {
+//            System.out.print("[");
+            for (double[] x : a) {
+                printArray(x, width, withIndex, precision);
+            }
+//            System.out.println("]");
         }
     }
 
-
+//-------------------------boolean array-----------------
     public static void printArray(boolean[] array) {
         printArray(array, false);
     }
     public static void printArray(boolean[] array, boolean withIndex) {
-        if (array == null) return;
+        if (array == null) System.out.println("null");
         int i = 0;
         System.out.print("[");
         for (boolean t : array) {
@@ -117,6 +131,18 @@ public class PrintUtils {
         }
         System.out.println("]");
     }
+    public static void print2DArray(boolean[][] a){
+        print2DArray(a, -1, false);
+    }
+    public static void print2DArray(boolean[][] a, int width, boolean withIndex){
+        int i=0;
+        StringBuilder format=new StringBuilder("%").append(width).append("d");
+        for (boolean[] x: a){
+            if(width!=-1) System.out.printf(format.toString(), i++);
+            printArray(x, true);
+        }
+    }
+    //----------------------------char array--------------------------
     public static void printArray(char[] array) {
         printArray(array, false);
     }
@@ -132,35 +158,37 @@ public class PrintUtils {
         }
         System.out.println("]");
     }
+
+    //----------------------------T array-------------------------------
     public static <T> void printArray(T[] array){
         printArray(array,",");
     }
-
     public static <T> void printArray(T[] array, String separator){
-        int i=0;
-        System.out.print("[");
-        for (T t:array){
-            System.out.print(t);
-            if(i!=array.length-1) System.out.print(separator);
-            i++;
-        }
-        System.out.println("]");
+        printList(Arrays.stream(array).collect(Collectors.toList()), p->String.valueOf(p), separator);
     }
     public static <T> void printArray(T[] array,Function<T, String> f){
-        printList(Arrays.stream(array).collect(Collectors.toList()),f);
+        printList(Arrays.stream(array).collect(Collectors.toList()),f, ",");
     }
-
     public static <T> void printList(List<T> list, Function<T, String> f){
+        printList(list, f, ",");
+    }
+    public static <T> void printList(List<T> list, Function<T, String> f, String separator){
+        printList(list, f, separator, false);
+    }
+    public static <T> void printList(List<T> list, Function<T, String> f, String separator, boolean withIndex){
         int i=0;
         System.out.print("[");
         for (T t:list){
+            if(withIndex) System.out.print(i+":");
             System.out.print(f.apply(t));
-            if(i!=list.size()-1) System.out.print(", ");
+            if(i!=list.size()-1) System.out.print(separator);
             i++;
         }
         System.out.println("]");
     }
 
+
+    //-----------------------------------String converting------------------------------------
     public static TreeNode convertStringToBinaryTree(String s){
         Queue<TreeNode> noChildren=new LinkedList<>();
         if(s==null) return null;
@@ -229,20 +257,11 @@ public class PrintUtils {
     }
 
     public static int[] convertStringToIntArray(String s){
-        if(s==null) return null;
-        if(s.equals("")||s.equals("[]")) return new int[0];
-        int[] result=new int[s.split(",").length];
-            Pattern pattern1 = Pattern.compile("(?<=\\[).*?(?=])");
-            Matcher matcher1 =pattern1.matcher(s);
-            int i=0;
-            if(matcher1.find()){
-                String[] strs=matcher1.group().split(",");
-                if(strs.length==1&&strs[0].equals("")) return result;
-                else {
-                    for(String se:strs) result[i++]=Integer.valueOf(se.trim());
-                }
-            }
-        return result;
+        String[] sarr=convertStringToStringArray(s);
+        int[] iarr=new int[sarr.length];
+        for (int i = 0; i < sarr.length; i++)
+            iarr[i]=Integer.valueOf(sarr[i]);
+        return iarr;
     }
 
     /**
