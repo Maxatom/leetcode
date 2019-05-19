@@ -19,6 +19,10 @@ public class LengthofLongestFibonacciSubsequence {
         System.out.println(fibonacci.lenLongestFibSubseq(A));
     }
 
+    //brute forece
+    public int lenLongestFibSubseq1(int[] A) {
+        return 0;
+    }
     //O(N^2)   space O(N^3)
     public int lenLongestFibSubseq(int[] A) {
         int n=A.length, max=2;
