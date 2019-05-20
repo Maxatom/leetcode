@@ -119,6 +119,7 @@ public class PrintUtils {
     public static void printArray(boolean[] array) {
         printArray(array, false);
     }
+    public static void printArrayWithIndex(boolean[] array) { printArray(array, true); }
     public static void printArray(boolean[] array, boolean withIndex) {
         if (array == null) System.out.println("null");
         int i = 0;
