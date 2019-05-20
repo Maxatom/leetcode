@@ -13,6 +13,13 @@ public class ArrayGenerator {
         return ints;
     }
 
+    /**
+     *  generated arrays.
+     * @param length
+     * @param bottomBound  included
+     * @param upBound   excluded
+     * @return int array
+     */
     public static int[] intArray(int length, int bottomBound, int upBound) {
         return  new Random().ints(bottomBound, upBound).limit(length).toArray();
     }

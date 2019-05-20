@@ -19,8 +19,24 @@ public class LastStoneWeightII {
 //        stones=new int[]{21,16,23,32,25,13,20,18,22,21,84,35,33,17,27,24,10,19,31,26,94,37,31,25,24,25,15,23,17,13};
 //        System.out.println(weightII.lastStoneWeightII(stones));
         System.out.println(weightII.lastStoneWeightII1(stones));
+        System.out.println(weightII.lastStoneWeight(stones));
     }
 
+    public int lastStoneWeight(int[] A) {
+        int[] dp = new int[1501];
+        dp[0] = 1;
+        int sumA = 0, res = 100;
+        for (int a : A) {
+            sumA += a;
+            for (int i = 1500; i >= a; --i) {
+                dp[i] |= dp[i - a];
+            }
+//            PrintUtils.printIntArrayWithIndex(dp);
+        }
+        for (int i = 0; i <= 1500; ++i)
+            res = Math.min(res, Math.abs(sumA - dp[i] * i * 2));
+        return res;
+    }
     //TLE O(T*n)
     public int lastStoneWeightII1(int[] stones) {
         int n=stones.length, total=0;
@@ -38,10 +54,8 @@ public class LastStoneWeightII {
                     break;
                 }
             }
-            if(hasSum[sum]) {
+            if(hasSum[sum])
                 min=Math.min(min, Math.abs(total-2*sum));
-//                System.out.println("min="+min+", sum="+sum +" , total-2*sum="+ (total-2*sum));
-            }
         }
         return min;
     }
