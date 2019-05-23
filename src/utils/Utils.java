@@ -2,9 +2,7 @@ package utils;
 
 import leetcode.common.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author shibing
@@ -68,6 +66,30 @@ public class Utils {
         return result;
     }
 
+    /**
+     * quickSort
+     * @param a
+     * @param c
+     * @param <T> type
+     */
+    public static <T> void quickSort(T[] a, Comparator<? super T> c) {
+        quickSort0(a, 0, a.length - 1, c);
+    }
+    private static <T> void quickSort0(T[] A, int left, int right, Comparator<? super T> c) {
+        if (left >= right) return;
+        T x = A[left];
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && c.compare(A[j], x) ==1 ) j--;
+            if (i < j) A[i++] = A[j];
+            while (i < j && c.compare(A[i] , x)==-1) i++;
+            if (i < j) A[j--] = A[i];
+        }
+        A[i] = x;
+        quickSort0(A, left, i - 1, c);
+        quickSort0(A, i + 1, right, c);
+    }
+
     //快速排序
     public static void quickSort(int[] A) {
         quickSort0(A, 0, A.length - 1);
@@ -108,5 +130,40 @@ public class Utils {
         node.left=copyTree(root.left);
         node.right=copyTree(root.right);
         return node;
+    }
+
+    public static List<Integer> allOccurence(String s, String s1){
+        int idx=0, fromIndex=0, len=s.length();
+        List<Integer> res=new ArrayList<>();
+        while ((idx=sunday(s, s1, fromIndex, len))!=-1){
+            res.add(idx);
+            if(idx+s1.length()>=s.length()) return res;
+            int j=s1.length()-1, i=idx; char c= s.charAt(idx+s1.length());
+            while (j>=0 && c!=s1.charAt(j)) j--;
+            fromIndex = idx + s1.length() - j;
+            len = s.length() - fromIndex;
+        }
+
+        return res;
+    }
+
+    public static int sunday(String s, String s1){
+        return sunday(s, s1, 0, s.length());
+    }
+
+    public static int sunday(String s, String s1, int fromIndex, int length){
+        char[] schars=s.toCharArray();
+        char[] s1chars=s1.toCharArray();
+        int targetIndex=fromIndex+length;
+        for (int i = fromIndex; i < targetIndex; i++) {
+            int k=i;
+            for (int j = 0; j <s1.length() && schars[k]==s1chars[j]; j++, k++);
+            if(k==i+s1chars.length) return i;
+            int k1=s1chars.length-1, next=i+s1chars.length;
+            if(next>=schars.length) return -1;
+            while (k1>=0 && s1chars[k1]!=schars[next]) k1--;
+            i+=s1chars.length-k1-1;
+        }
+        return -1;
     }
 }

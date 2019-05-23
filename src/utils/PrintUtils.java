@@ -40,8 +40,12 @@ public class PrintUtils {
         printArray(array, width, false);
     }
 
-    public static void printIntArrayWithIndex(int[] array){
+    public static void printArrayWithIndex(int[] array){
         printArray(array, -1, true);
+    }
+
+    public static void printIntArrayWithIndex(int[] array){
+        printArrayWithIndex(array);
     }
 
     /**
@@ -65,21 +69,28 @@ public class PrintUtils {
         System.out.println("]");
     }
 
+    public static void print2DIntArray(int[][] a, boolean rowNum){
+        print2DIntArray(a, -1, false, true);
+    }
     public static void print2DIntArray(int[][] a){
         print2DIntArray(a, -1, false);
     }
     public static void print2DIntArray(int[][] a, int width){
         print2DIntArray(a, width, false);
     }
+    public static void print2DIntArray(int[][] a, int width, boolean withIndex){
+        print2DIntArray(a, width, withIndex, false);
+    }
     /**
          * 打印二位整数数组
          * @param a 数组
          */
-    public static void print2DIntArray(int[][] a, int width, boolean withIndex){
+    public static void print2DIntArray(int[][] a, int width, boolean withIndex, boolean rowNum){
         if(a!=null) {
 //            System.out.print("[");
-            for (int[] x : a) {
-                printArray(x, width, withIndex);
+            for (int i = 0; i < a.length; i++) {
+                if(rowNum) System.out.print(i+": ");
+                printArray(a[i], width, withIndex);
             }
 //            System.out.println("]");
         }

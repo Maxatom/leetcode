@@ -1,7 +1,7 @@
 package leetcode.problems.dynamicPrograming;
 
-import leetcode.problems.utils.Utils;
 import utils.PrintUtils;
+import utils.Utils;
 
 import java.util.Arrays;
 import java.util.Comparator;
