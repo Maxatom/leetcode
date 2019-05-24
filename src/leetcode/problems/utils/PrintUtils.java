@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -24,8 +25,8 @@ public class PrintUtils {
      * 打印整数数组
      * @param array 数组
      */
-    public static void printIntArray(int[] array){
-        printIntArray(array, -1, false);
+    public static void printArray(int[] array){
+        System.out.println(Arrays.toString(array));
     }
 
     public static void printIntArray(String tips,int[] array){

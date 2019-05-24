@@ -132,18 +132,23 @@ public class Utils {
         return node;
     }
 
+    /**
+     * find all occurrence of s1 in s
+     * @param s
+     * @param s1
+     * @return  the indexes of all occurrence
+     */
     public static List<Integer> allOccurence(String s, String s1){
-        int idx=0, fromIndex=0, len=s.length();
+        int idx, fromIndex=0, len=s.length();
         List<Integer> res=new ArrayList<>();
         while ((idx=sunday(s, s1, fromIndex, len))!=-1){
             res.add(idx);
             if(idx+s1.length()>=s.length()) return res;
-            int j=s1.length()-1, i=idx; char c= s.charAt(idx+s1.length());
+            int j=s1.length()-1; char c= s.charAt(idx+s1.length());
             while (j>=0 && c!=s1.charAt(j)) j--;
             fromIndex = idx + s1.length() - j;
             len = s.length() - fromIndex;
         }
-
         return res;
     }
 
@@ -151,11 +156,23 @@ public class Utils {
         return sunday(s, s1, 0, s.length());
     }
 
+    /**
+     *  Return the index with s of the first  occurrence of s1, starting at a specified index.
+     *
+     * @param s  the string to be searched in
+     * @param s1 the substring to search for
+     * @param fromIndex  the index from which to start search
+     * @param length  length
+     * @return the index of the first occurrence of s1, starting at a specified index
+     *   or -1 if there is no such occurrence
+     */
     public static int sunday(String s, String s1, int fromIndex, int length){
+        if(s1.length()>length) return -1;
         char[] schars=s.toCharArray();
         char[] s1chars=s1.toCharArray();
         int targetIndex=fromIndex+length;
         for (int i = fromIndex; i < targetIndex; i++) {
+            if(i+s1.length()>targetIndex) return -1;
             int k=i;
             for (int j = 0; j <s1.length() && schars[k]==s1chars[j]; j++, k++);
             if(k==i+s1chars.length) return i;
