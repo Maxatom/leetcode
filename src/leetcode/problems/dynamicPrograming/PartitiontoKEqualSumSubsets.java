@@ -21,5 +21,8 @@ public class PartitiontoKEqualSumSubsets {
         }
         return false;
     }
-
+    public  int recursive(int[] nums, int N, int K, int subsum, int visited){
+        int n=nums.length;
+        return 0;
+    }
 }
