@@ -29,23 +29,19 @@ public class PrintUtils {
      * @param array 数组
      */
     public static void printArray(int[] array){
-        printArray(array, -1, false);
+        System.out.println(Arrays.toString(array));
     }
 
     public static void printArray(String tips, int[] array){
         System.out.print(tips);
-        printArray(array, -1, false);
+        System.out.println(Arrays.toString(array));
     }
     public static void printArray(int[] array, int width){
         printArray(array, width, false);
     }
 
-    public static void printArrayWithIndex(int[] array){
-        printArray(array, -1, true);
-    }
-
     public static void printIntArrayWithIndex(int[] array){
-        printArrayWithIndex(array);
+        printArray(array, -1, true);
     }
 
     /**
@@ -55,7 +51,7 @@ public class PrintUtils {
      * @param withIndex 索引
      */
     public static void printArray(int[] array, int width, boolean withIndex){
-        if(array==null) System.out.println("null");;
+        if(array==null) System.out.println("null");
         int i=0;
         StringBuilder format=new StringBuilder("%").append(width).append("d");
         System.out.print("[");
@@ -99,7 +95,7 @@ public class PrintUtils {
 
     //------------------------------------double array--------------------------------
     public static void printArray(double[] array, int width, boolean withIndex, int precision){
-        if(array==null) System.out.println("null");;
+        if(array==null) System.out.println("null");
         int i=0;
         StringBuilder format=new StringBuilder("%").append(width).append(".").append(precision).append("f");
         System.out.print("[");
@@ -176,7 +172,7 @@ public class PrintUtils {
         printArray(array,",");
     }
     public static <T> void printArray(T[] array, String separator){
-        printList(Arrays.stream(array).collect(Collectors.toList()), p->String.valueOf(p), separator);
+        printList(Arrays.stream(array).collect(Collectors.toList()), String::valueOf, separator);
     }
     public static <T> void printArray(T[] array,Function<T, String> f){
         printList(Arrays.stream(array).collect(Collectors.toList()),f, ",");
@@ -321,7 +317,7 @@ public class PrintUtils {
      * 从文件读取一维数组
      * @param filePath 文件路径
      * @return 数组
-     * @throws IOException
+     * @throws IOException  IO异常
      */
     public static int[] readArrayFromFile(String filePath) throws IOException {
         int[] array;
