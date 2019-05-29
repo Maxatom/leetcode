@@ -1,6 +1,6 @@
 package leetcode.problems.dynamicPrograming;
 
-import leetcode.problems.utils.PrintUtils;
+import utils.PrintUtils;
 
 /**
  * @author Shibing
