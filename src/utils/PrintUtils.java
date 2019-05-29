@@ -31,7 +31,6 @@ public class PrintUtils {
     public static void printArray(int[] array){
         System.out.println(Arrays.toString(array));
     }
-
     public static void printArray(String tips, int[] array){
         System.out.print(tips);
         System.out.println(Arrays.toString(array));
@@ -39,11 +38,9 @@ public class PrintUtils {
     public static void printArray(int[] array, int width){
         printArray(array, width, false);
     }
-
     public static void printIntArrayWithIndex(int[] array){
         printArray(array, -1, true);
     }
-
     /**
      * 打印整数数组
      * @param array 数组
@@ -91,7 +88,6 @@ public class PrintUtils {
 //            System.out.println("]");
         }
     }
-
 
     //------------------------------------double array--------------------------------
     public static void printArray(double[] array, int width, boolean withIndex, int precision){
@@ -150,6 +146,7 @@ public class PrintUtils {
             printArray(x, true);
         }
     }
+
     //----------------------------char array--------------------------
     public static void printArray(char[] array) {
         printArray(array, false);
@@ -194,7 +191,6 @@ public class PrintUtils {
         }
         System.out.println("]");
     }
-
 
     //-----------------------------------String converting------------------------------------
     public static TreeNode convertStringToBinaryTree(String s){
@@ -263,7 +259,6 @@ public class PrintUtils {
         }
         return result;
     }
-
     public static int[] convertStringToIntArray(String s){
         String[] sarr=convertStringToStringArray(s);
         int[] iarr=new int[sarr.length];
@@ -271,7 +266,6 @@ public class PrintUtils {
             iarr[i]=Integer.valueOf(sarr[i]);
         return iarr;
     }
-
     /**
      * 将字符传转换成二维数组
      * 数组示例 [[2,3,4],[3,4,5]]
@@ -300,8 +294,6 @@ public class PrintUtils {
         }
         return result;
     }
-
-
     public static ListNode convertArrayToListNode(int[] A){
         if(A==null || A.length==0) return null;
         ListNode head=new ListNode(A[0]);
@@ -312,7 +304,6 @@ public class PrintUtils {
         }
         return head;
     }
-
     /**
      * 从文件读取一维数组
      * @param filePath 文件路径
