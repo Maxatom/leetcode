@@ -19,14 +19,14 @@ public class LargestPlusSign {
         System.out.println(sign.orderOfLargestPlusSign1(N, mines));
     }
     //new solution
-    public int orderOfLargestPlusSign2(int N, int[][] mines) {
-        int[][] grid=new int[N][N];
-        for(int[] m:mines){
-            for (int i = 0; i < N; i++) {
-                grid[m[0]][i]=Math.min(grid[m[0]][i], -x);
-            }
-        }
-    }
+//    public int orderOfLargestPlusSign2(int N, int[][] mines) {
+//        int[][] grid=new int[N][N];
+//        for(int[] m:mines){
+//            for (int i = 0; i < N; i++) {
+//                grid[m[0]][i]=Math.min(grid[m[0]][i], -x);
+//            }
+//        }
+//    }
 
     //dp
     public int orderOfLargestPlusSign1(int N, int[][] mines) {
