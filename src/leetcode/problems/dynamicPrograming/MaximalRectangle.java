@@ -12,11 +12,12 @@ public class MaximalRectangle {
     public static void main(String[] args) {
         MaximalRectangle rectangle=new MaximalRectangle();
         char[][] matrix={{'1','0','1','0','0'},{'1','0','1','1','1'},{'1','1','1','1','1'},{'1','0','0','1','0'}};
-        matrix=new char[][]{{'1','0','1'},{'1','0','1'},{'1','1','1'},{'1','0','0'}};
-        matrix=new char[][]{{'1','1','1','1','1','1','1','1'},{'1','1','1','1','1','1','1','0'},{'1','1','1','1','1','1','1','0'},{'1','1','1','1','1','0','0','0'},{'0','1','1','1','1','0','0','0'}};
-        matrix=new char[][]{{'0','1','1','0','1'},{'1','1','0','1','0'},{'0','1','1','1','0'},{'1','1','1','1','0'},{'1','1','1','1','1'},{'0','0','0','0','0'}};
+//        matrix=new char[][]{{'1','0','1'},{'1','0','1'},{'1','1','1'},{'1','0','0'}};
+//        matrix=new char[][]{{'1','1','1','1','1','1','1','1'},{'1','1','1','1','1','1','1','0'},{'1','1','1','1','1','1','1','0'},{'1','1','1','1','1','0','0','0'},{'0','1','1','1','1','0','0','0'}};
+//        matrix=new char[][]{{'0','1','1','0','1'},{'1','1','0','1','0'},{'0','1','1','1','0'},{'1','1','1','1','0'},{'1','1','1','1','1'},{'0','0','0','0','0'}};
 //        System.out.println(rectangle.maximalRectangle(matrix));
         System.out.println(rectangle.maximalRectangle1(matrix));
+        System.out.println(rectangle.maximalRectangle2(matrix));
     }
 
     //stack
@@ -27,11 +28,16 @@ public class MaximalRectangle {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++)
                 h[j]=matrix[i][j]=='1'?h[j]+1:0;
-            for (int j = 0; j < n; j++) {
-
+            int[] stack=new int[n]; int top=-1;
+            for (int j = 0; j <= n; j++) {
+                while (top>=0 && (j==n || h[j]<h[stack[top]])){
+                    int hc=h[stack[top--]];
+                    max=Math.max(max, hc*(top<0 ? j : j-stack[top]-1));
+                }
+                stack[++top]=j;
             }
         }
-        return 0;
+        return max;
     }
 
     public int maximalRectangle1(char[][] matrix) {

@@ -13,17 +13,23 @@ public class LargestRectangleinHistogram {
         System.out.println(histogram.largestRectangleArea(heights));
     }
 
-    //,,
-    public int largestRectangleArea1(int[] heights) {
-        int n=heights.length;
-        if(n==0) return 0;
-        int[] left=new int[n], right=new int[n];
-        int pre=0;
-        for (int i = 1; i < n; i++) {
-            left[i]= heights[i]<=heights[i-1]? heights[i-1]+1:1;
-        }
-        return 0;
-    }
+    //DC
+//    public int largestRectangleArea1(int[] heights) {
+//        int n=heights.length;
+//        if(n==0) return 0;
+//        divideAndConquer(heights, 0, n-1);
+//        return 0;
+//    }
+//    //res[0] max
+//    int[] divideAndConquer(int[] heights, int L, int R){
+//        if(L==R) return new int[]{heights[L], heights[L], 1, heights[R], 1};
+//        int mid=(L+R)/2;
+//        int[] left=divideAndConquer(heights, L, mid);
+//        int[] right=divideAndConquer(heights, mid+1, R);
+//        int[] res=new int[5];
+//        if(left[2]<mid-L+1)
+//
+//    }
 
     //stack  O(N)
     public int largestRectangleArea(int[] heights) {
