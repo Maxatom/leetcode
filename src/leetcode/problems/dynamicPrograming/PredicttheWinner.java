@@ -1,5 +1,7 @@
 package leetcode.problems.dynamicPrograming;
 
+import utils.PrintUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,10 +14,36 @@ public class PredicttheWinner {
         PredicttheWinner winner=new PredicttheWinner();
         int[] nums=new int[]{1, 5, 2};
 //        nums=new int[]{1, 5, 233, 7};
-        nums=new int[]{3};
-        System.out.println(winner.PredictTheWinner(nums));
+//        nums=new int[]{3};
+//        System.out.println(winner.PredictTheWinner(nums));
         System.out.println(winner.PredictTheWinner1(nums));
+        System.out.println(winner.PredictTheWinner2(nums));
     }
+
+    public boolean PredictTheWinner2(int[] nums) {
+        int n=nums.length, total=0, max=0;
+        for(int w:nums) total+=w;
+        int[][] dp=new int[n+1][n+1];
+        for (int t = 1; t <= n; t++) {
+            for (int l = 0; l <= t; l++) {
+                int r=n+l-1-t;
+                if(l==0) {
+                    dp[t][l] = dp[t-1][l] + ((t&1)==1 ? nums[r+1] : 0);
+                }else if(l==t) {
+                    dp[t][l] = dp[t-1][l-1] + ((t&1)==1 ? nums[l-1] : 0);
+                }else {
+                    if ((t & 1) == 1) dp[t][l] = Math.max(dp[t - 1][l] + nums[r + 1], dp[t - 1][l - 1] + nums[l]);
+                    else dp[t][l] = Math.min(dp[t - 1][l], dp[t - 1][l - 1]);
+                }
+                if(t==n) max=Math.max(max, dp[t][l]);
+            }
+        }
+        PrintUtils.print2DIntArray(dp);
+        System.out.println(max);
+        return max>=(total+1)/2;
+    }
+
+
 
     public boolean PredictTheWinner1(int[] nums) {
         int n=nums.length, total=0;
