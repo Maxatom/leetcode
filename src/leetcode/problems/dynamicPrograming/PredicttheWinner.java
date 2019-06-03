@@ -16,7 +16,15 @@ public class PredicttheWinner {
         System.out.println(winner.PredictTheWinner(nums));
         System.out.println(winner.PredictTheWinner1(nums));
     }
+    //bottom-up
+    public boolean PredictTheWinner2(int[] nums) {
+        int n=nums.length, total=0;
+        for(int w:nums) total+=w;
+        int[][] dp=new int[n][n];
+        
+    }
 
+    //dp top-down
     public boolean PredictTheWinner1(int[] nums) {
         int n=nums.length, total=0;
         for(int w:nums) total+=w;
