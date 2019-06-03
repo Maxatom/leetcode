@@ -1,5 +1,7 @@
 package leetcode.problems.array;
 
+import utils.PrintUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +14,38 @@ public class SubarraySumEqualsK {
         SubarraySumEqualsK equalsK=new SubarraySumEqualsK();
         int[] nums=new int[]{1,1,1}; int K=2;
         nums=new int[]{1,-1,0,1,-1}; K=0;
-        System.out.println(equalsK.subarraySum(nums, K));
+//        System.out.println(equalsK.subarraySum(nums, K));
+        System.out.println(equalsK.subarraySum1(nums, K));
+        System.out.println(equalsK.subarraySum2(nums, K));
     }
+
+    //O(N)
+    public int subarraySum2(int[] nums, int k) {
+        Map<Integer, Integer> map=new HashMap<>();
+        int sum=0, cnt=0;
+        map.put(0,1);
+        for (int i = 0; i < nums.length; i++) {
+            sum+=nums[i];
+            if(map.containsKey(sum-k)) cnt+=map.get(sum-k);
+            map.put(sum, map.getOrDefault(sum,0)+1);
+        }
+        System.out.println(map);
+        return cnt;
+    }
+
+    public int subarraySum1(int[] nums, int k) {
+        int cnt=0;
+        for (int i = 0; i < nums.length; i++) {
+            int sum=0;
+            for (int j = i; j < nums.length; j++) {
+                sum+=nums[j];
+               if(sum==k) cnt++;
+            }
+        }
+        return cnt;
+    }
+
+    //TLE
     public int subarraySum(int[] nums, int k) {
         Map<Integer,Integer> map=new HashMap<>();
         int cnt=0;
