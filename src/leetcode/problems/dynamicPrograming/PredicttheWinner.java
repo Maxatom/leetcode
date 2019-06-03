@@ -1,5 +1,7 @@
 package leetcode.problems.dynamicPrograming;
 
+import utils.PrintUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,20 +13,61 @@ public class PredicttheWinner {
     public static void main(String[] args) {
         PredicttheWinner winner=new PredicttheWinner();
         int[] nums=new int[]{1, 5, 2};
-//        nums=new int[]{1, 5, 233, 7};
+        nums=new int[]{1, 5, 233, 7};
         nums=new int[]{3};
-        System.out.println(winner.PredictTheWinner(nums));
-        System.out.println(winner.PredictTheWinner1(nums));
-    }
-    //bottom-up
-    public boolean PredictTheWinner2(int[] nums) {
-        int n=nums.length, total=0;
-        for(int w:nums) total+=w;
-        int[][] dp=new int[n][n];
-        
+//        System.out.println(winner.PredictTheWinner(nums));
+//        System.out.println(winner.PredictTheWinner1(nums));
+//        System.out.println(winner.PredictTheWinner2(nums));
+        System.out.println(winner.PredictTheWinner3(nums));
+        System.out.println(winner.PredictTheWinner4(nums));
     }
 
-    //dp top-down
+    //1D Array
+    public boolean PredictTheWinner4(int[] nums) {
+        int n=nums.length;
+        if( (n&1)==0) return true;
+        int[] dp=new int[n];
+        for (int i = n-1; i >= 0; i--) {
+            dp[i]=nums[i];
+            for (int j = i+1; j <n ; j++)
+                dp[j]=Math.max(nums[i] - dp[j], nums[j]-dp[j-1]);
+        }
+        return dp[n-1]>=0;
+    }
+
+    //bottom-up
+    //dp(i,j) is the difference between A's and B's score with i~j
+    //dp(i,j)= max(nums[i] - dp(i+1,j), nums[j]-dp(i,j-1))
+    //dp(i,i)=nums[i]
+    public boolean PredictTheWinner2(int[] nums) {
+        int n=nums.length;
+        if( (n&1)==0) return true;
+        int[][] dp=new int[n][n];
+        for (int i = n-1; i >= 0; i--) {
+            dp[i][i]=nums[i];
+            for (int j = i+1; j <n ; j++)
+                dp[i][j]=Math.max(nums[i] - dp[i+1][j], nums[j]-dp[i][j-1]);
+        }
+        return dp[0][n-1]>=0;
+    }
+
+    //another implementation
+    public boolean PredictTheWinner3(int[] nums) {
+        int n=nums.length;
+        int[][] dp=new int[n][n];
+        for (int t = 0; t < n; t++) {
+            for (int i = 0; i+t <n ; i++) {
+                if(t==0) { dp[i][i]=nums[i]; continue; }
+                int j=i+t;
+                dp[i][j]=Math.max(nums[i] - dp[i+1][j], nums[j]-dp[i][j-1]);
+            }
+        }
+//        PrintUtils.print2DIntArray(dp);
+        return dp[0][n-1]>=0;
+    }
+
+
+    // whose score exceed the half of total score
     public boolean PredictTheWinner1(int[] nums) {
         int n=nums.length, total=0;
         for(int w:nums) total+=w;
@@ -47,6 +90,7 @@ public class PredicttheWinner {
         return res;
     }
 
+    // whose score exceed the half of total score
     public boolean PredictTheWinner(int[] nums) {
         int n=nums.length, total=0;
         for(int w:nums) total+=w;
