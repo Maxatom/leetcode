@@ -20,6 +20,7 @@ public class ConverttoBaseNeg2 {
     }
     //base10 to any base( include Negabase)
     public String baseNegR(int N, int R) {
+        if(N==0) return "0";
         StringBuilder sb=new StringBuilder();
         int r;
         while (N!=0){
