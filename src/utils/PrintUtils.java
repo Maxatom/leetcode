@@ -317,4 +317,14 @@ public class PrintUtils {
         }
         return array;
     }
+
+    public static void printListNode(ListNode listNode) {
+        System.out.print("(");
+        while (listNode!=null){
+            System.out.print(listNode.val);
+            if(listNode.next!=null) System.out.print("->");
+            listNode=listNode.next;
+        }
+        System.out.println(")");
+    }
 }
