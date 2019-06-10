@@ -1,4 +1,4 @@
-package leetcode.problems;
+package leetcode.problems.dynamicPrograming;
 
 /**
  * 整数拆分问题：

@@ -1,4 +1,4 @@
-package leetcode.problems;
+package leetcode.problems.math;
 
 /**
  * @author Shibing

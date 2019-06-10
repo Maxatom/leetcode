@@ -1,6 +1,5 @@
-package leetcode.problems;
+package leetcode.problems.hashmap;
 
-import utils.ArrayUtils;
 import utils.ArrayUtils;
 
 import java.util.Arrays;
