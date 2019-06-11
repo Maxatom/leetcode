@@ -1,7 +1,6 @@
-package leetcode.realtest.Top100Interview;
+package leetcode.TopInterview;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

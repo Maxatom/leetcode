@@ -1,4 +1,4 @@
-package leetcode.realtest.Top100Interview;
+package leetcode.TopInterview;
 
 import leetcode.common.ListNode;
 import utils.PrintUtils;

@@ -1,7 +1,6 @@
 package leetcode.problems.backtrace;
 
-import leetcode.realtest.Top100Interview.Permutations;
-import utils.PrintUtils;
+import leetcode.TopInterview.Permutations;
 
 import java.util.*;
 
