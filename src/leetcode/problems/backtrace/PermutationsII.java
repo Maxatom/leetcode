@@ -16,6 +16,7 @@ public class PermutationsII {
         System.out.println(permutationsII.permuteUnique1(nums));
     }
 
+    //Sort don't use the number whose previous one isn't used
     public List<List<Integer>> permuteUnique1(int[] nums) {
         List<List<Integer>> list=new ArrayList<>();
         Arrays.sort(nums);
@@ -37,6 +38,7 @@ public class PermutationsII {
         }
     }
 
+    //SWAP
     public List<List<Integer>> permuteUnique(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> list=new ArrayList<>();

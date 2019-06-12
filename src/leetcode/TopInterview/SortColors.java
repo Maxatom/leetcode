@@ -12,9 +12,10 @@ public class SortColors {
         int[] nums={2,0,2,1,1,0};
 //        nums=new int[]{2,0,2,1,1,0,1,1,1,2,1,2,0};
         nums=new int[]{2,0,1};
-//        nums=new int[]{1,0,1};
+        nums=new int[]{1,0,1};
         nums=new int[]{1,0};
-        colors.sortColors1(nums);
+//        colors.sortColors1(nums);
+        colors.sortColors(nums);
         PrintUtils.printArray(nums);
     }
     public void sortColors1(int[] nums) {
@@ -29,24 +30,18 @@ public class SortColors {
             }
         }
     }
-    //Wrong
     public void sortColors(int[] nums) {
         if(nums.length<2) return;
-        int i=0, j=nums.length-1, temp=nums[j], k=1;
-        while (k<3) {
-            while (i < j) {
-                while (i < j && nums[i] < k) i++;
-                if (i < j) nums[j--] = nums[i];
-                while (i < j && nums[j] > k) j--;
-                if (i < j) nums[i++] = nums[j];
+        int j=0, k=0;
+        for (int i = 0; i < nums.length; i++) {
+            int v=nums[i];
+            nums[i]=2;
+            if(v<2){
+                nums[j]=1; j++;
             }
-            if(i==j) nums[i]=temp;
-//            PrintUtils.printArray(nums);
-//            System.out.println(i);
-            i = i>k?i:i+1;
-            j=nums.length-1;
-            k++;
-            temp=nums[j];
+            if(v==0){
+                nums[k]=0; k++;
+            }
         }
     }
 }

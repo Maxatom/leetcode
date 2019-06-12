@@ -15,7 +15,7 @@ public class Permutations {
         System.out.println(permutations.permute(nums));
         System.out.println(permutations.permute1(nums));
     }
-    //optimization
+    //optimization  SWAP
     public List<List<Integer>> permute1(int[] nums) {
         List<List<Integer>> list=new ArrayList<>();
         recursion(nums, list,  0);
@@ -34,6 +34,7 @@ public class Permutations {
         }
     }
 
+    //DFS
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> list=new ArrayList<>();
         recursion(nums, list ,new ArrayList<>(), 0);
