@@ -13,7 +13,32 @@ public class SubsetsII {
         SubsetsII subsetsII=new SubsetsII();
         int[] nums={1,2,2};
         PrintUtils.printList(subsetsII.subsetsWithDup(nums), l->l.toString());
+        PrintUtils.printList(subsetsII.subsetsWithDup1(nums), l->l.toString());
     }
+
+    //count the appearing times of each element, and see them as special element that you can either put one of which into a list
+    //or two, or three... etc.
+    public List<List<Integer>> subsetsWithDup1(int[] nums) {
+        Map<Integer,Integer> map=new HashMap<>();
+        for (int i = 0; i < nums.length; i++)
+            map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
+        List<List<Integer>> res=new ArrayList<>();
+        res.add(new ArrayList<>());
+        for(Map.Entry<Integer,Integer> entry:map.entrySet()){
+            List<List<Integer>> cur=new ArrayList<>();
+            for(List<Integer> list:res){
+                List<Integer> newlist=new ArrayList<>(list);
+                cur.add(new ArrayList<>(list));
+                for (int i = 0; i < entry.getValue(); i++) {
+                    newlist.add(entry.getKey());
+                    cur.add(new ArrayList<>(newlist));
+                }
+            }
+            res.addAll(cur);
+        }
+        return res;
+    }
+
     //back tracing
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
