@@ -12,7 +12,6 @@ public class TrappingRainWater {
         height=new int[]{1,0};
         System.out.println(water.trap(height));
     }
-
     //two pointers
     public int trap(int[] height) {
         int i=0, j=1, sum=0, cur=0;
