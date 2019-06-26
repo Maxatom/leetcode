@@ -36,7 +36,4 @@ public class DuplicateZeros {
             }
         }
     }
-//    public void shift(int[] arr, int idx, int zeros){
-//
-//    }
 }
