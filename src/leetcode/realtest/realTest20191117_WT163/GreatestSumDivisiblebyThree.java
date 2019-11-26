@@ -1,12 +1,7 @@
 package leetcode.realtest.realTest20191117_WT163;
 
 import utils.PrintUtils;
-/*
-[3,6,5,1,8]
-[1]
-[23,4,4,3,4,5,23]
-[1,1,1,1]
- */
+
 public class GreatestSumDivisiblebyThree {
     public static void main(String[] args) {
         GreatestSumDivisiblebyThree three=new GreatestSumDivisiblebyThree();
