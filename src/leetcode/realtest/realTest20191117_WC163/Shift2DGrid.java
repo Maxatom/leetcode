@@ -1,4 +1,4 @@
-package leetcode.realtest.realTest20191117_WT163;
+package leetcode.realtest.realTest20191117_WC163;
 
 import utils.PrintUtils;
 
@@ -11,8 +11,8 @@ public class Shift2DGrid {
         int[][] grid = new int[][]{{1,2,3},{4,5,6},{7,8,9}}; int k = 1;
         grid = new int[][]{{3,8,1,9},{19,7,2,5},{4,6,11,10},{12,0,21,13}};  k = 4;
         grid = new int[][]{{1,2,3},{4,5,6},{7,8,9}}; k = 9;
-       grid=new int[][]{{1},{2},{3},{4},{7},{6},{5}}; k=23;
-       grid=new int[][]{{1},{2}}; k=19;
+        grid=new int[][]{{1},{2},{3},{4},{7},{6},{5}}; k=23;
+        grid=new int[][]{{1},{2}}; k=19;
         PrintUtils.printList(sgrid.shiftGrid(grid,k), p->p.toString());
     }
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
