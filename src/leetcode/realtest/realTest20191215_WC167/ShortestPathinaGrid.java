@@ -39,6 +39,8 @@ public class ShortestPathinaGrid {
             int res=dfs(grid, k, new int[]{x, y}, visited);
             min=Math.min(min, res+1);
         }
+        String s="abc";
+//        s.substring()
         visited[p[0]][p[1]]= false;
         return min;
     }
