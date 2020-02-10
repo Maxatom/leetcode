@@ -17,6 +17,26 @@ public class CreateMaximumNumber {
         nums1=new int[]{3, 9}; nums2=new int[]{8, 9}; k=3;
         PrintUtils.printArray(number.maxNumber(nums1, nums2, k));
     }
+    public int[] maxNumber1(int[] nums1, int[] nums2, int k) {
+        int l1=0, l2=0, n1=nums1.length, n2=nums2.length;
+        while (k>0){
+            int s=9;
+            while (s>=0){
+                int i=l1;
+                while (i<n1){
+                    if(nums1[i]==s) break;
+                }
+                if(i<n1) {
+                    l1=i;
+                }
+                int j=l2;
+                while (j<n1){
+                    if(nums2[i]==s) break;
+                }
+            }
+        }
+        return new int[1];
+    }
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
         int m=nums1.length, n=nums2.length;
         Integer[] index1=new Integer[m];

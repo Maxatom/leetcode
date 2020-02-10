@@ -192,6 +192,28 @@ public class PrintUtils {
         System.out.println("]");
     }
 
+    //---------------------------------3D Array-----------------------------------
+    public static void print3DArray(int[][][] arr){
+        print3DArray(arr, false);
+    }
+    public static void print3DArray(int[][][] arr, boolean withIndex){
+        int m=arr.length, n=arr[0].length, k=arr[0][0].length;
+        for (int i = 0; i < m; i++) {
+            System.out.print("[");
+            for (int j = 0; j < n; j++) {
+                System.out.print("[");
+                for (int l = 0; l < k; l++) {
+                    if(withIndex)
+                        System.out.printf("%d:",l);
+                    System.out.print(arr[i][j][l]);
+                    if(l<k-1) System.out.print(",");
+                }
+                System.out.print("]");
+            }
+            System.out.println("]");
+        }
+    }
+
     //-----------------------------------String converting------------------------------------
     public static TreeNode convertStringToBinaryTree(String s){
         Queue<TreeNode> noChildren=new LinkedList<>();
