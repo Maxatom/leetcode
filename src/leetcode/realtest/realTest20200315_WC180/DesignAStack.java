@@ -26,27 +26,29 @@ public class DesignAStack {
     }
 }
 class CustomStack {
-    int[] stack;
+    int[][] stack;
     int top;
     public CustomStack(int maxSize) {
-        stack=new int[maxSize];
+        stack=new int[maxSize][2];
         top=-1;
     }
 
     public void push(int x) {
         if(top<stack.length-1)
-            stack[++top]=x;
+            stack[++top][0]=x;
     }
 
     public int pop() {
-        if(top>-1)
-            return stack[top--];
-        else return -1;
+        if(top==-1) return -1;
+        if(top!=0) stack[top-1][1]+=stack[top][1];
+        int res=stack[top][0]+stack[top][1];
+        stack[top][1]=0;
+        --top;
+        return res;
     }
 
     public void increment(int k, int val) {
-        for(int i=Math.min(k-1,top); i>=0; i--){
-            stack[i]+=val;
-        }
+        if(Math.min(k-1,top)>-1)
+            stack[Math.min(k-1,top)][1]+=val;
     }
 }
